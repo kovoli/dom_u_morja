@@ -1,0 +1,11 @@
+{% extends 'houses/../../../templates/base.html' %}
+{% block content %}
+    <div>
+        <h2>{{ house.name }}</h2>
+        {% if house.photo %}
+            <img src="{{ house.photo.url }}" alt="{{ house.name }}">
+        {% endif %}
+        <div>{{ house.price }}</div>
+        <div>{{ house.description }}</div>
+    </div>
+{% endblock content %}
