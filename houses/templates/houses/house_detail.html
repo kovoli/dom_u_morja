@@ -3,6 +3,7 @@
 {% block html_title%}
     Дом {{ house.name }}
 {% endblock %}
+
 {% block content %}
     <a href="{% url 'home' %}">Главная</a>
     <div>
@@ -13,4 +14,11 @@
         <div>{{ house.price }}</div>
         <div>{{ house.description }}</div>
     </div>
+
+    <h2>Заявка</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Отправить заявку">
+    </form>
 {% endblock content %}
