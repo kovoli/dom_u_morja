@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from houses.views import houses_list
+from houses.views import houses_list, house_detail
 from django.conf.urls.static import static  # импорт модуля для работы с файлами
 from django.conf import settings  # импорт настройки проекта
 
@@ -23,4 +23,5 @@ from django.conf import settings  # импорт настройки проект
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', houses_list, name="home"),
+    url(r'^house/(?P<house_id>\d+)/$', house_detail, name="house"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
